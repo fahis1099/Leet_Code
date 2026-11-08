@@ -3,9 +3,17 @@ class Solution:
         if x < 2:
             return x
 
-        i = 2
+        left, right = 1, x//2
 
-        while i * i <= x:
-            i += 1
-    
-        return i-1
+        while left <= right:
+            mid = (left + right) // 2
+            square = mid * mid
+
+            if square == x:
+                return mid
+            elif square < x:
+                left = mid + 1
+            else:
+                right = mid - 1
+        
+        return right
